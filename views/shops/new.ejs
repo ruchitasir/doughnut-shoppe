@@ -9,9 +9,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s6">
         <input id="specialty" type="text" class="validate" name="specialty">
         <label for="specialty">Specialty</label>
+      </div>
+      <div class="range-field col s6">
+        <input id="rating" type="range" min="0" max="5" step="0.5" name="rating">
+        <label for="rating">Star Rating</label>
       </div>
     </div>
     <div class="row">
@@ -24,6 +28,12 @@
       <div class="input-field col s12">
         <input id="image" type="url" class="validate" name="image">
         <label for="image">Image URL</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="description" class="validate materialize-textarea" name="description"></textarea>
+        <label for="description">Description</label>
       </div>
     </div>
     <button class="btn waves-effect waves-light teal lighten-3" type="submit">Log Me In
