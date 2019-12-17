@@ -28,7 +28,10 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  db.shop.findByPk(req.params.id)
+  db.shop.findOne({
+    where: { id: req.params.id },
+    include: [db.donut]
+  })
   .then(shop => {
     res.render('shops/show', { shop })
   })
