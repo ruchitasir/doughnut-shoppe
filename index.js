@@ -5,6 +5,7 @@ let app = express()
 
 app.set('view engine', 'ejs')
 app.use(layouts)
+app.use(express.urlcoded({ extended: false }))
 
 app.use('/shops', require('./controllers/shops'))
 

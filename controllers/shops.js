@@ -1,19 +1,20 @@
 let router = require('express').Router()
 
 router.get('/', (req, res) => {
-  res.send('ALL SHOPS ROUTE')
+  res.render('shops/index')
 })
 
 router.post('/', (req, res) => {
+  console.log(req.body)
   res.send('MAKE NEW SHOP ROUTE')
 })
 
 router.get('/new', (req, res) => {
-  res.send('NEW SHOP FORM ROUTE')
+  res.render('shops/new')
 })
 
 router.get('/:id', (req, res) => {
-  res.send('SHOP DETAIL (show) ROUTE')
+  res.send('shops/show')
 })
 
 module.exports = router
