@@ -16,3 +16,13 @@
   </a>
 </h3>
 <p><%= donut.shop.description %></p>
+
+<h2>Who Likes This Doughnut?</h2>
+
+<% donut.customers.forEach(c => { %>
+  <h3>
+    <a href="/customers/<%=c.id%>">
+      <%= c.name %>
+    </a>
+  </h3>
+<% }) %>
