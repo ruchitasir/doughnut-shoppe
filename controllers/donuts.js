@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   })
   .catch(err => {
     console.log(err)
-    res.send('error happened')
+    res.render('error')
   })
 })
 
@@ -19,21 +19,25 @@ router.post('/', (req, res) => {
   })
   .catch(err => {
     console.log(err)
-    res.send('error happened')
+    res.render('error')
   })
+})
+
+router.get('/new', (req, res) => {
+  res.render('donuts/new')
 })
 
 router.get('/:id', (req, res) => {
   db.donut.findOne({
     where: { id: req.params.id },
-    include: [ db.shop, db.customer ]
+    include: [ db.shop ]
   })
   .then(donut => {
     res.render('donuts/show', { donut })
   })
   .catch(err => {
     console.log(err)
-    res.send('Something bad happened?')
+    res.render('error')
   })
 })
 
