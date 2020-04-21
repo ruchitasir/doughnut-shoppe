@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   db.donut.create(req.body)
   .then(donut => {
-    res.redirect('/shops/' + req.body.shopId)
+    res.redirect('/donuts/' + donut.id)
   })
   .catch(err => {
     console.log(err)
