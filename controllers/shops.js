@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   db.shop.create(req.body)
   .then(newShop => {
-    res.redirect('/shops')
+    res.redirect('/shops/'+ newShop.id)
   })
   .catch(err => {
     console.log('Error', err)
@@ -33,7 +33,13 @@ router.get('/:id', (req, res) => {
     include: [db.donut]
   })
   .then(shop => {
-    res.render('shops/show', { shop })
+    console.log('shop',shop)
+    if(shop != null){
+      res.render('shops/show', { shop })
+    }else{
+      res.send('No shop with id: '+ req.params.id)
+    }
+    
   })
   .catch(err => {
     console.log('Error', err)

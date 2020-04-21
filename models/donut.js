@@ -10,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   donut.associate = function(models) {
     models.donut.belongsTo(models.shop)
+    models.donut.belongsToMany(models.customer,{
+      through: 'customers_donuts',
+      onDelete: 'CASCADE'
+    })
   };
   return donut;
 };
